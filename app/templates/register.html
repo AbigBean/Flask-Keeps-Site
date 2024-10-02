@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h2>Register</h2>
+
+{% if success %}
+    <a href="{{ url_for('login') }}">Login</a>
+{% endif %}
+
+{% if msg %}
+    <p>{{ msg }}</p>
+{% else %}
+    <p>Please fill in the form to create an account.</p>
+{% endif %}
+
+{% if not success %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.username.label }} {{ form.username }}
+    {{ form.email.label }} {{ form.email }}
+    {{ form.password.label }} {{ form.password }}
+    <input type="submit" value="Register">
+</form>
+{% endif %}
+{% endblock %}

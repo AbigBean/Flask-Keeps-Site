@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Note{% endblock %}
+
+{% block content %}
+    <h2>Edit Your Note</h2>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.note.label }} <br>
+        {{ form.note(cols=50, rows=5) }}
+        <input type="submit" value="Update Note">
+    </form>
+{% endblock %}
